@@ -1,0 +1,36 @@
+SELECT A.ITEMNUM,
+       A.LOCATION, 
+       B.ITEMGROUP,
+       A.INVCLASS,
+       A.STATUS,
+       A.BINNUM,
+       A.ISSUEUNIT,
+       A.ABCTYPE,
+       A.CCF,
+       A.MINLEVEL,
+       A.DELIVERYTIME,
+       A.ORDERQTY,
+       A.BUYERID
+FROM INVENTORY A
+LEFT JOIN ITEM B
+ON (A.ITEMNUM = B.ITEMNUM)
+
+select * from inventory
+
+
+SELECT A.ITEMNUM,
+       B.DESCRIPTION,
+       A.LOCATION, 
+       A.INVCLASS,
+       A.STATUS,
+       --A.CURBALTOTAL,
+       A.LASTISSUEDATE,
+       A.ISSUEYTD,
+       A.ISSUE1YRAGO,
+       A.ISSUE2YRAGO,
+       A.ISSUE3YRAGO,
+       A.BUYERID
+FROM INVENTORY A
+LEFT JOIN ITEM B
+ON (A.ITEMNUM = B.ITEMNUM)
+WHERE (A.INVCLASS = 'Consumable' and A.STATUS != 'OBSOLETE')
